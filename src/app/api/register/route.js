@@ -9,7 +9,7 @@ export async function POST(req, context) {
   connectMongoDB();
   let user = await User.findOne({ userName: body.get('userName') });
   if (user) {
-    return Response.json({ error: 'User not found' }, { status: 401 });
+    return Response.json({ error: 'User already exist' }, { status: 403 });
   } else {
     const user = await User.create({
       userName: body.get('userName'),

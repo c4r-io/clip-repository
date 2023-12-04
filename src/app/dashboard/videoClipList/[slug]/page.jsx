@@ -153,6 +153,18 @@ const Page = ({ params }) => {
       console.error(error);
     }
   };
+  const handleFileChange = (e) => {
+    const selectedfile =e.target.files[0]
+    if (selectedfile.size > 1 * 1024 * 1024) {
+      toast.error("File is too large, Max size is 1 MB", {
+        position: "top-center",
+      })
+      setThumbnail(null);
+    }else{
+      setThumbnail(e.target.files[0])
+    
+    }
+  }
   return (
     <div className="container mx-auto py-4 px-4 md:px-0">
       <form onSubmit={updateUser}>
@@ -221,7 +233,7 @@ const Page = ({ params }) => {
               aria-describedby="thumbnail_help"
               id="thumbnail"
               type="file"
-              onChange={(e) => setThumbnail(e.target.files[0])}
+              onChange={(e) => handleFileChange(e)}
             />
           </div>
         </div>

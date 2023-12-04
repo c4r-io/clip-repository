@@ -53,7 +53,7 @@ const Page = ({ params }) => {
       });
     } catch (error) {
       if (error.response.status == 401) {
-        toast.error(error.response.data.message + ". Try again.", {
+        toast.error(error.response.data.error, {
           position: "top-center",
         });
         // router.push('/');
@@ -104,11 +104,16 @@ const Page = ({ params }) => {
       });
     } catch (error) {
       if (error.response.status == 401) {
-        toast.error(error.response.data.message + ". Try again.", {
+        toast.error(error.response.data.error + ". Try again.", {
           position: "top-center",
         });
         // router.push('/');
-      } else {
+      } else if(error.response.status == 403) {
+        toast.error(error.response.data.error + ". Try login or use different username.", {
+          position: "top-center",
+        });
+        // router.push('/');
+      }  else {
         toast.error(error.message, {
           position: "top-center",
         });

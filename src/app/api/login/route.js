@@ -7,7 +7,7 @@ import User from '@/models/userModel.js';
 export async function POST(req, context) {
   const body = await req.formData();
   connectMongoDB();
-  let user = await User.findOne({ userName:body.get('userName') });
+  let user = await User.findOne({ userName: body.get('userName') });
   console.log(user, body.get('userName'), body.get('password'));
   if (user && (await user.matchPassword(body.get('password')))) {
     return Response.json({

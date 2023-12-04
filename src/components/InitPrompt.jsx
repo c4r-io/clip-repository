@@ -189,42 +189,42 @@ const AllViews = () => {
                 <Link
                   className="p-2 bg-gray-700 hover:bg-gray-500 rounded-full"
                   target="_blank"
-                  href={`https://twitter.com/intent/tweet?text=https://youtu.be/${currentVideoLink}`}
+                  href={`https://twitter.com/intent/tweet?text=https://youtu.be/${currentVideoLink.videoLink}`}
                 >
                   <RiTwitterXFill />
                 </Link>
                 <Link
                   className="p-2 bg-gray-700 hover:bg-gray-500 rounded-full"
                   target="_blank"
-                  href={`http://www.reddit.com/submit?url=https://youtu.be/${currentVideoLink}`}
+                  href={`http://www.reddit.com/submit?url=https://youtu.be/${currentVideoLink.videoLink}`}
                 >
                   <FaReddit />
                 </Link>
                 <Link
                   className="p-2 bg-gray-700 hover:bg-gray-500 rounded-full"
                   target="_blank"
-                  href={`whatsapp://send?text=https://youtu.be/${currentVideoLink}`}
+                  href={`whatsapp://send?text=https://youtu.be/${currentVideoLink.videoLink}`}
                 >
                   <IoLogoWhatsapp />
                 </Link>
                 <Link
                   className="p-2 bg-gray-700 hover:bg-gray-500 rounded-full"
                   target="_blank"
-                  href={`https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/${currentVideoLink}`}
+                  href={`https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/${currentVideoLink.videoLink}`}
                 >
                   <BsFacebook />
                 </Link>
                 <Link
                   className="p-2 bg-gray-700 hover:bg-gray-500 rounded-full"
                   target="_blank"
-                  href={`https://www.linkedin.com/sharing/share-offsite/?url=https://youtu.be/${currentVideoLink}`}
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=https://youtu.be/${currentVideoLink.videoLink}`}
                 >
                   <AiFillLinkedin />
                 </Link>
                 <button
                   className="p-2 bg-gray-700 hover:bg-gray-500 rounded-full"
                   onClick={() =>
-                    copyToClipBoard(`https://youtu.be/${currentVideoLink}`)
+                    copyToClipBoard(`https://youtu.be/${currentVideoLink.videoLink}`)
                   }
                 >
                   <IoIosLink />
@@ -256,7 +256,7 @@ const AllViews = () => {
       )}
 
       {/* expansion btn */}
-      <div className="mx-6 ">
+      {!currentVideoLink && !nextLink && <div className="mx-6 ">
         <button
           className="px-2 w-full flex justify-between items-center bg-ui-violet text-black"
           onClick={() => toggleExpandBottomSection()}
@@ -281,7 +281,7 @@ const AllViews = () => {
             )}
           </div>
         </button>
-      </div>
+      </div>}
     </div>
   );
 };
