@@ -60,6 +60,12 @@ const Page = ({ params }) => {
   useEffect(() => {
     getVideoClipList();
   }, [params.slug]);
+  function extractQueryParam(url, param) {
+    const urlObj = new URL(url);
+    const searchParams = new URLSearchParams(urlObj.search);
+    return searchParams.get(param);
+  }
+
   // update user data
   // content type form data
   const updateUser = async (e) => {
@@ -90,7 +96,7 @@ const Page = ({ params }) => {
       data.thumbnail = thumbnail;
     }
     if (videoLink && videoClipListResponse?.videoLink !== videoLink) {
-      data.videoLink = videoLink;
+      data.videoLink = extractQueryParam(videoLink, 'v');
     }
     if (nextLink && videoClipListResponse?.nextLink !== nextLink) {
       data.nextLink = nextLink;
@@ -243,14 +249,14 @@ const Page = ({ params }) => {
             className="block mb-2 text-sm font-medium text-white"
           >
             {" "}
-            Youtube video id
+            Youtube video link
           </label>
           <input
             type="text"
             id="videoLink"
             className="shadow-sm border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light"
             placeholder="Youtube video id"
-            defaultValue={videoClipListResponse?.videoLink}
+            defaultValue={`https://www.youtube.com/watch?v=${videoClipListResponse?.videoLink}`}
             onInput={(e) => setVideoLink(e.target.value)}
           />
         </div>

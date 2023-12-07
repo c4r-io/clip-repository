@@ -108,7 +108,7 @@ const AllViews = () => {
         <div className="mx-3 p-3 pb-0 border-x-2 space-y-2 border-ui-violet rounded-lg">
           <div
             className={`space-y-2 pb-3 ${
-              expandBottomSection ? "h-[520px]" : "h-[223px]"
+              expandBottomSection ? "h-[452px]" : "h-[367px]"
             } overflow-y-scroll`}
           >
             {videoClipListList.videoClipLists?.map((e, index) => (
@@ -123,12 +123,12 @@ const AllViews = () => {
           </div>
           <div
             className={`space-y-2 ${
-              expandBottomSection ? "h-0 overflow-hidden" : ""
+              expandBottomSection ? "h-0 overflow-hidden" : "py-2"
             }`}
           >
             <hr className="border-ui-violet" />
             <FilterVideoSelectors />
-            <div className="space-y-2 pb-3 max-h-[223px] overflow-y-scroll">
+            {/* <div className="space-y-2 pb-3 max-h-[223px] overflow-y-scroll">
               {videoClipListList.videoClipLists?.map((e, index) => (
                 <div key={index}>
                   <VideoListCardUi
@@ -138,29 +138,28 @@ const AllViews = () => {
                   />
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       )}
       {currentVideoLink && !nextLink && (
         <div className="mx-3 p-3 ">
           <iframe
-            width="353"
-            height="185"
+            width="713" height="405"
             src={`https://www.youtube.com/embed/${currentVideoLink?.videoLink}?rel=0`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
-          <div className="relative flex justify-between text-[12px] mt-2">
+          {!shareTooltipStatus ? (<div className="relative flex justify-between text-[16px] font-bold mt-2">
             <button
-              className="px-4 py-1 bg-ui-violet rounded-sm"
+              className="px-14 py-3 bg-ui-violet rounded-sm"
               onClick={() => setCurrentVideoLink(null)}
             >
               Back to Recommendations
             </button>
             <button
-              className="px-4 py-1 bg-purple-400/80 rounded-sm"
+              className="px-14 py-3 bg-purple-400/80 rounded-sm"
               onClick={() => setShareTooltipStatus(true)}
             >
               Share Video
@@ -173,14 +172,13 @@ const AllViews = () => {
             </button> */}
 
             <Link
-              className="px-4 py-1 bg-orange-400 rounded-sm"
+              className="px-14 py-3 bg-orange-400 rounded-sm"
               target="_blank"
               href={`${currentVideoLink?.nextLink}`}
             >
               Next
             </Link>
-          </div>
-          {shareTooltipStatus ? (
+          </div>):(
             <div
               className="flex justify-center mt-5"
               onClick={() => setShareTooltipStatus(false)}
@@ -231,8 +229,6 @@ const AllViews = () => {
                 </button>
               </div>
             </div>
-          ) : (
-            ""
           )}
         </div>
       )}

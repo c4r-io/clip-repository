@@ -10,15 +10,15 @@ const VideoListCardUi = ({ right, info, setvideoLink }) => {
       }`}
     >
       <div
-        className={`w-[100px] max-h-max flex justify-center items-center text-center rounded-lg border-black bg-white p-2 ${
+        className={`w-[123px] max-h-max flex justify-center items-center text-center rounded-lg border-black bg-white p-2 ${
           right ? "border-s-4" : "border-e-4"
         }`}
       >
         { info && info?.thumbnail ? (
           <Image
             src={`${info?.thumbnail.data}`}
-            width={100}
-            height={100}
+            width={123}
+            height={123}
             alt={`${info?.videoTitle}`}
           />
         ) : (
@@ -30,11 +30,11 @@ const VideoListCardUi = ({ right, info, setvideoLink }) => {
         )}
       </div>
       <div
-        className={`w-[calc(100%_-_100px)] flex flex-col justify-center space-y-1 p-2 `}
+        className={`w-[calc(100%_-_123px)] flex flex-col justify-center space-y-1 p-2 `}
       >
-        <h3 className="text-[18px]  font-bold">{info?.videoTitle}</h3>
-        <p className="text-[10px] leading-[14px]">{info?.videoDetailsText}</p>
-        <p className="text-[8px] leading-[14px]">
+        <h3 className="text-[16px]  font-bold">{info?.videoTitle}</h3>
+        <p className="text-[14px] leading-[18px]">{info?.videoDetailsText}</p>
+        <p className="text-[10px] leading-[18px]">
           <span className="font-bold">Keywords</span>: {info?.videoKeywords}
         </p>
       </div>
