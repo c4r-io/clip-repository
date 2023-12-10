@@ -11,7 +11,14 @@ export async function GET(req, context) {
   const { params } = context;
   connectMongoDB();
   const videoClipLists = await VideoClipList.findById(params.slug);
-  return Response.json({ videoClipLists });
+  return Response.json({ videoClipLists },{
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    },
+  });
 }
 
 // @desc Put videoClipList

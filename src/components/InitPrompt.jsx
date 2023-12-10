@@ -30,10 +30,6 @@ export default function InitPrompt() {
 }
 
 const AllViews = () => {
-  const [careerStage, setCareerStage] = useState([]);
-  const [fieldOfResearch, setFieldOfResearch] = useState([]);
-  const [institution, setInstitution] = useState([]);
-  const [rigorTopic, setRigorTopic] = useState([]);
 
   const { filterData, dispatchFilterData } = useContext(ClipFilterContext);
   const [videoClipListList, setVideoClipListList] = useState({
@@ -106,6 +102,15 @@ const AllViews = () => {
       {/* <div className="text-white">{JSON.stringify(filterData)}</div> */}
       {!currentVideoLink && !nextLink && (
         <div className="mx-3 p-3 pb-0 border-x-2 space-y-2 border-ui-violet rounded-lg">
+        <div
+          className={`space-y-2 ${
+            expandBottomSection ? "h-0 overflow-hidden" : "py-2"
+          }`}
+        >
+          <FilterVideoSelectors />
+          <hr className="border-ui-violet" />
+          
+        </div>
           <div
             className={`space-y-2 pb-3 ${
               expandBottomSection ? "h-[452px]" : "h-[367px]"
@@ -120,25 +125,6 @@ const AllViews = () => {
                 />
               </div>
             ))}
-          </div>
-          <div
-            className={`space-y-2 ${
-              expandBottomSection ? "h-0 overflow-hidden" : "py-2"
-            }`}
-          >
-            <hr className="border-ui-violet" />
-            <FilterVideoSelectors />
-            {/* <div className="space-y-2 pb-3 max-h-[223px] overflow-y-scroll">
-              {videoClipListList.videoClipLists?.map((e, index) => (
-                <div key={index}>
-                  <VideoListCardUi
-                    info={e}
-                    right={index % 2 !== 0}
-                    setvideoLink={setCurrentVideoLink}
-                  />
-                </div>
-              ))}
-            </div> */}
           </div>
         </div>
       )}
@@ -164,12 +150,6 @@ const AllViews = () => {
             >
               Share Video
             </button>
-            {/* <button
-              className="px-4 py-1 bg-orange-400 rounded-sm"
-              onClick={() => setNextLink(currentVideoLink?.nextLink)}
-            >
-              Next
-            </button> */}
 
             <Link
               className="px-14 py-3 bg-orange-400 rounded-sm"
@@ -240,7 +220,6 @@ const AllViews = () => {
           >
             go back
           </button>
-          {/* <embed type="text/html" src={`${currentVideoLink?.nextLink}`} width="500" height="200"></embed> */}
           <iframe
             width="374"
             height="540"

@@ -76,7 +76,10 @@ const Page = () => {
         videoTitle: "Sample Video title",
         videoDetailsText: "Sample Video details text",
         videoKeywords: "Sample Video keywords",
-        thumbnail: "Sample Thumbnail",
+        thumbnail: {
+          data: "/sample-image.jpg",
+          name: "Sample Video thumbnail"
+        },
         videoLink: "Sample Video link",
       },
     };

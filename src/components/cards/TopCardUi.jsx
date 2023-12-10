@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import VideoListCardLayout from "./VideoListCardTopLayout";
 
-const CardUi = () => {
+const TopCardUi = () => {
   const question = "hello";
   const [answerShow, setAnswerShow] = useState(false);
   const toggleAnswerShow = () => {
@@ -25,4 +25,4 @@ const CardUi = () => {
   );
 };
 
-export default CardUi;
+export default TopCardUi;

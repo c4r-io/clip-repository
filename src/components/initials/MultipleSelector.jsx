@@ -1,7 +1,7 @@
 "use client"
 import React, { createRef, useRef, useState } from "react";
 
-const Selector = ({ children, fields, handleSelected }) => {
+const MultipleSelector = ({ children, fields, handleSelected }) => {
   const selectorBtnEl = useRef(null);
   const inputElement = useRef(null);
   const [isOnList, setIsOnList] = useState(false);
@@ -131,4 +131,4 @@ const Selector = ({ children, fields, handleSelected }) => {
   );
 };
 
-export default Selector;
+export default MultipleSelector;

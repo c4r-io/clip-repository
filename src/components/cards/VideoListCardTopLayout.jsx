@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const AudienceCardLayout = ({ children, imageurl }) => {
+const VideoListCardLayout = ({ children, imageurl }) => {
   return (
     <div className="p-3 pb-0">
       <div className="flex relative">
@@ -23,4 +23,4 @@ const AudienceCardLayout = ({ children, imageurl }) => {
   );
 };
 
-export default AudienceCardLayout;
+export default VideoListCardLayout;

@@ -54,6 +54,13 @@ export async function GET(req, res) {
     videoClipLists,
     page,
     pages: Math.ceil(count / pageSize),
+  },{
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    },
   });
 }
 // @desc Post videoClipList
